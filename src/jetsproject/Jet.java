@@ -7,6 +7,9 @@ public class Jet {
 	protected int range;
 	protected double price;
 
+	
+	Pilot pilot = new Pilot();
+	
 	public Jet() {
 		super();
 	}
