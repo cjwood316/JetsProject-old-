@@ -1,20 +1,21 @@
 package jetsproject;
 
 public class Jet {
+	String aircraftMake;
 	String aircraftModel;
 	float Speed;
 	int range;
 	double price;
-	
 
 	public Jet() {
 		super();
 	}
 
-	public Jet(String aircraftModel, float speed, int range, double price) {
+	public Jet(String aircraftMake, String aircraftModel, float speed, int range, double price) {
 		super();
+		this.aircraftMake = aircraftMake;
 		this.aircraftModel = aircraftModel;
-		Speed = speed;
+		this.Speed = speed;
 		this.range = range;
 		this.price = price;
 	}
