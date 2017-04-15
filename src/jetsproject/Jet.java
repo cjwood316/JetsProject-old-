@@ -3,15 +3,30 @@ package jetsproject;
 public class Jet {
 	protected String aircraftMake;
 	protected String aircraftModel;
-	protected float Speed;
+	protected float speed;
 	protected int range;
 	protected double price;
-
-	
-	Pilot pilot = new Pilot();
+	private Pilot p;
 	
 	public Jet() {
 		super();
+	}
+	public Jet(String aircraftMake, String aircraftModel, float speed, int range, double price) {
+		super();
+		this.aircraftMake = aircraftMake;
+		this.aircraftModel = aircraftModel;
+		this.speed = speed;
+		this.range = range;
+		this.price = price;
+	}
+	public Jet(String aircraftMake, String aircraftModel, float speed, int range, double price, Pilot p) {
+		super();
+		this.aircraftMake = aircraftMake;
+		this.aircraftModel = aircraftModel;
+		this.speed = speed;
+		this.range = range;
+		this.price = price;
+		this.p = p;
 	}
 
 	@Override
@@ -22,7 +37,7 @@ public class Jet {
 		builder.append(", aircraftModel= ");
 		builder.append(aircraftModel);
 		builder.append(", Speed= ");
-		builder.append(Speed);
+		builder.append(speed);
 		builder.append(", range= ");
 		builder.append(range);
 		builder.append(", price= ");
@@ -31,15 +46,13 @@ public class Jet {
 		return builder.toString();
 	}
 
-	public Jet(String aircraftMake, String aircraftModel, float speed, int range, double price) {
-		super();
-		this.aircraftMake = aircraftMake;
-		this.aircraftModel = aircraftModel;
-		this.Speed = speed;
-		this.range = range;
-		this.price = price;
-	}
 
+	public String getAircraftMake() {
+		return aircraftMake;
+	}
+	public void setAircraftMake(String aircraftMake) {
+		this.aircraftMake = aircraftMake;
+	}
 	public String getAircraftModel() {
 		return aircraftModel;
 	}
@@ -49,11 +62,11 @@ public class Jet {
 	}
 
 	public float getSpeed() {
-		return Speed;
+		return speed;
 	}
 
 	public void setSpeed(float speed) {
-		Speed = speed;
+		this.speed = speed;
 	}
 
 	public int getRange() {
@@ -70,6 +83,12 @@ public class Jet {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Pilot getP() {
+		return p;
+	}
+	public void setP(Pilot p) {
+		this.p = p;
 	}
 
 }

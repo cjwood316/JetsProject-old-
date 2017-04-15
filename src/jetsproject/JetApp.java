@@ -2,12 +2,12 @@ package jetsproject;
 
 import java.util.Scanner;
 
-public class ACBRoster {
+public class JetApp {
 	Jet[] aircraft = new Jet[100];
 	Jet j = new Jet();
 
 	public static void main(String[] args) {
-		ACBRoster st = new ACBRoster();
+		JetApp st = new JetApp();
 		st.start();
 	}
 
@@ -27,7 +27,7 @@ public class ACBRoster {
 		while (!quit) {
 			System.out.println("Enter your choice: ");
 			int userInput = kb.nextInt();
-			userChoice(userInput);
+			quit = userChoice(userInput);
 		}
 
 	}
@@ -45,7 +45,7 @@ public class ACBRoster {
 			break;
 
 		case 3:
-			 viewLongestRange();
+			viewLongestRange();
 			break;
 
 		case 4:
@@ -55,6 +55,9 @@ public class ACBRoster {
 		case 5:
 			System.out.println("Quitting!");
 			return true;
+		case 6:
+			System.out.println("Oh $#@! we overbooked! One of you lucky united passengers GET OFF!");
+			
 
 		}
 		return false;
@@ -95,7 +98,19 @@ public class ACBRoster {
 		}
 		System.out.println(fastest.toString());
 	}
+
 	public void viewLongestRange() {
-		
+		initialStart();
+		Jet longest = new Jet();
+		for (int i = 0; i < aircraft.length - 1; i++) {
+			if (aircraft[i] != null && aircraft[i + 1] != null) {
+
+				if (aircraft[i].getRange() > aircraft[i + 1].getRange()) {
+					longest = aircraft[i];
+				}
+			}
+		}
+		System.out.println(longest.toString());
 	}
+	
 }
