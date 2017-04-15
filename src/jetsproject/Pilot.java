@@ -1,7 +1,7 @@
 package jetsproject;
 
 public class Pilot {
-	String pilotName;
+	protected String pilotName;
 
 	public Pilot() {
 	}

@@ -1,11 +1,11 @@
 package jetsproject;
 
 public class Jet {
-	String aircraftMake;
-	String aircraftModel;
-	float Speed;
-	int range;
-	double price;
+	protected String aircraftMake;
+	protected String aircraftModel;
+	protected float Speed;
+	protected int range;
+	protected double price;
 
 	public Jet() {
 		super();
