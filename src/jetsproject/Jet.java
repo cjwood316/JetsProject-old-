@@ -5,6 +5,7 @@ public class Jet {
 	float Speed;
 	int range;
 	double price;
+	
 
 	public Jet() {
 		super();
