@@ -3,6 +3,9 @@ package jetsproject;
 import java.util.Scanner;
 
 public class ACBRoster {
+	Jet[] aircraft = new Jet[100];
+	Jet j = new Jet();
+
 	public static void main(String[] args) {
 		ACBRoster st = new ACBRoster();
 		st.start();
@@ -22,9 +25,9 @@ public class ACBRoster {
 		boolean quit = false;
 
 		while (!quit) {
-
+			System.out.println("Enter your choice: ");
 			int userInput = kb.nextInt();
-			quit = userChoice(userInput);
+			userChoice(userInput);
 		}
 
 	}
@@ -34,15 +37,15 @@ public class ACBRoster {
 		switch (choice) {
 
 		case 1:
-			// listFleet();
+			listFleet();
 			break;
 
 		case 2:
-			// viewFastestJet();
+			viewFastestJet();
 			break;
 
 		case 3:
-			// viewLongestRange();
+			 viewLongestRange();
 			break;
 
 		case 4:
@@ -58,12 +61,41 @@ public class ACBRoster {
 	}
 
 	public void initialStart() {
-		Jet[] aircraft = new Jet[100];
-		aircraft[0] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
-		aircraft[1] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
-		aircraft[2] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
-		aircraft[3] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
-		aircraft[4] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
+
+		aircraft[0] = new Jet("Lockheed Martin", "F-35 Lightning", 1100.00F, 1379, 94_000_000.00F);
+		aircraft[1] = new Jet("Lockheed Martin", "F-35 Lightning", 1156.00F, 1379, 94_000_000.00F);
+		aircraft[2] = new Jet("Lockheed Martin", "F-35 Lightning", 1143.00F, 1379, 94_000_000.00F);
+		aircraft[3] = new Jet("Lockheed Martin", "F-35 Lightning", 1201.00F, 1379, 94_000_000.00F);
+		aircraft[4] = new Jet("Lockheed Martin", "F-35 Lightning", 1197.00F, 1379, 94_000_000.00F);
 		aircraft[5] = new Jet("Lockheed Martin", "F-35 Lightning", 1199.00F, 1379, 94_000_000.00F);
+	}
+
+	public void listFleet() {
+		initialStart();
+		for (int i = 0; i < aircraft.length; i++) {
+			if (aircraft[i] != null) {
+				System.out.println(aircraft[i].toString());
+
+			}
+
+		}
+
+	}
+
+	public void viewFastestJet() {
+		initialStart();
+		Jet fastest = new Jet();
+		for (int i = 0; i < aircraft.length - 1; i++) {
+			if (aircraft[i] != null && aircraft[i + 1] != null) {
+
+				if (aircraft[i].getSpeed() > aircraft[i + 1].getSpeed()) {
+					fastest = aircraft[i];
+				}
+			}
+		}
+		System.out.println(fastest.toString());
+	}
+	public void viewLongestRange() {
+		
 	}
 }

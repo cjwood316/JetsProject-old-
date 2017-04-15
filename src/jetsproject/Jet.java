@@ -14,6 +14,23 @@ public class Jet {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("[aircraftMake= ");
+		builder.append(aircraftMake);
+		builder.append(", aircraftModel= ");
+		builder.append(aircraftModel);
+		builder.append(", Speed= ");
+		builder.append(Speed);
+		builder.append(", range= ");
+		builder.append(range);
+		builder.append(", price= ");
+		builder.append(price);
+		builder.append("]");
+		return builder.toString();
+	}
+
 	public Jet(String aircraftMake, String aircraftModel, float speed, int range, double price) {
 		super();
 		this.aircraftMake = aircraftMake;
