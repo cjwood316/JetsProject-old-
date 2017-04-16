@@ -64,11 +64,11 @@ public class JetApp {
 
 	public void initialStart() {
 
-		aircraft[0] = new Jet("Lockheed Martin", "F-35 Lightning", 1100.00F, 1300, 94_000_000.00F);
-		aircraft[1] = new Jet("Lockheed Martin", "F-35 Lightning", 1156.00F, 1389, 94_000_000.00F);
-		aircraft[2] = new Jet("Lockheed Martin", "F-35 Lightning", 1143.00F, 1200, 94_000_000.00F);
-		aircraft[3] = new Jet("Lockheed Martin", "F-35 Lightning", 1201.00F, 1400, 94_000_000.00F);
-		aircraft[4] = new Jet("Lockheed Martin", "F-35 Lightning", 1197.00F, 1354, 94_000_000.00F);
+		aircraft[0] = new Jet("F-35C Lightning II", 1197.00f, 1400, 122_000_000.00F);
+		aircraft[1] = new Jet("A-10 Warthog", 439.00f, 800, 18_800_000.00F);
+		aircraft[2] = new Jet("F-18 Hornet", 1190.00f, 2069, 98_000_000.00F);
+		aircraft[3] = new Jet("F-4 Phantom II", 1473.00f, 1615, 2_400_000.00F);
+		aircraft[4] = new Jet("F-22 Raptor", 1498.00f, 1839, 150_000_000.00F);
 	}
 
 	public void listFleet() {
@@ -86,34 +86,33 @@ public class JetApp {
 	public void viewFastestJet() {
 		initialStart();
 		Jet fastest = new Jet();
-		for (int i = 0; i < aircraft.length - 1; i++) {
-			if (aircraft[i] != null && aircraft[i + 1] != null) {
+		
+		for (int i = 0; i < aircraft.length; i++) {
+			if (aircraft[i] != null) {
 
-				if (aircraft[i].getSpeed() > aircraft[i + 1].getSpeed()) {
+				if (aircraft[i].getSpeed() > fastest.getSpeed()) {
 					fastest = aircraft[i];
 				}
 			}
 		}
-		System.out.println(fastest.toString());
+		System.out.println("Fastest jet: " + fastest.toString());
 	}
 
 	public void viewLongestRange() {
 		initialStart();
 		Jet longest = new Jet();
-		for (int i = 0; i < aircraft.length - 1; i++) {
-			if (aircraft[i] != null && aircraft[i + 1] != null) {
+		for (int i = 0; i < aircraft.length; i++) {
+			if (aircraft[i] != null) {
 
-				if (aircraft[i].getRange() > aircraft[i + 1].getRange()) {
+				if (aircraft[i].getRange() > longest.getRange()) {
 					longest = aircraft[i];
 				}
 			}
 		}
-		System.out.println(longest.toString());
+		System.out.println("Longest range jet: " + longest.toString());
 	}
 
 	public void addJetToFleet() {
-		System.out.println("Enter the make: ");
-		String make = kb.next();
 		System.out.println("Enter the model: ");
 		String model = kb.next();
 		System.out.println("Enter the speed(mph): ");
@@ -126,7 +125,7 @@ public class JetApp {
 		for (int i = 0; i < aircraft.length; i++) {
 			temp[i] = aircraft[i];
 		}
-		temp[aircraft.length] = new Jet(make, model, speed, range, price);
+		temp[aircraft.length] = new Jet(model, speed, range, price);
 		aircraft = temp;
 	}
 }
