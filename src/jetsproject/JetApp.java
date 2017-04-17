@@ -6,6 +6,7 @@ public class JetApp {
 	Scanner kb = new Scanner(System.in);
 	Jet[] aircraft = new Jet[100];
 	Jet j = new Jet();
+	MenuList fleetMenu = new MenuList();
 
 	public static void main(String[] args) {
 		JetApp st = new JetApp();
@@ -13,9 +14,8 @@ public class JetApp {
 	}
 
 	private void start() {
-		MenuList rosterMenu = new MenuList();
 
-		rosterMenu.menu();
+		fleetMenu.menu();
 		menuInput();
 		initialStart();
 
@@ -56,7 +56,8 @@ public class JetApp {
 			System.out.println("Quitting!");
 			return true;
 		case 6:
-			System.out.println("Oh $#@! we overbooked! One of you lucky united passengers GET OFF!");
+			System.out.println("ATTENTION THIS IS THE CAPTAIN: We have overbooked! "
+			+ "We will now randomly select one of you to be forcefully removed from your seat.");
 
 		}
 		return false;
@@ -80,13 +81,15 @@ public class JetApp {
 			}
 
 		}
-
+		System.out.println("");
+		System.out.println("");
+		fleetMenu.menu();
 	}
 
 	public void viewFastestJet() {
 		initialStart();
 		Jet fastest = new Jet();
-		
+
 		for (int i = 0; i < aircraft.length; i++) {
 			if (aircraft[i] != null) {
 
@@ -96,6 +99,9 @@ public class JetApp {
 			}
 		}
 		System.out.println("Fastest jet: " + fastest.toString());
+		System.out.println("");
+		System.out.println("");
+		fleetMenu.menu();
 	}
 
 	public void viewLongestRange() {
@@ -110,6 +116,9 @@ public class JetApp {
 			}
 		}
 		System.out.println("Longest range jet: " + longest.toString());
+		System.out.println("");
+		System.out.println("");
+		fleetMenu.menu();
 	}
 
 	public void addJetToFleet() {
